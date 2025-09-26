@@ -99,6 +99,20 @@ public class MusicOrganizer
     }
 
     /**
+     * List the names of files matching the given search string.
+     */
+    public void listMatching(String searchString)
+    {
+        for(String filename : files) {
+            if(filename.contains(searchString)) {
+                // A match.
+                System.out.println(filename);
+                
+            }
+        }
+    }
+    
+    /**
      * Stop the player.
      */
     public void stopPlaying()
