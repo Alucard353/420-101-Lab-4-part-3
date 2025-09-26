@@ -129,6 +129,18 @@ public class MusicOrganizer
     }
 
     /**
+     * List the names of files matching the given search string.
+     */
+    public void playSample();
+    {
+        boolean search = true;
+        for(String filename : files) {
+            
+        }
+        
+    }
+    
+    /**
      * Play a file in the collection. Only return once playing has finished.
      * @param index The index of the file to be played.
      */
