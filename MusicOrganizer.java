@@ -103,13 +103,21 @@ public class MusicOrganizer
      */
     public void listMatching(String searchString)
     {
+        boolean search = true;
         for(String filename : files) {
             if(filename.contains(searchString)) {
                 // A match.
                 System.out.println(filename);
-                
+                search = false;
             }
         }
+        if(search == false){
+            System.out.println("file name not found");
+        }
+        else {
+            System.out.println("file is found");
+        }
+        
     }
     
     /**
