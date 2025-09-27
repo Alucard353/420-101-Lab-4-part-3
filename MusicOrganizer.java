@@ -129,17 +129,20 @@ public class MusicOrganizer
     }
 
     /**
-     * List the names of files matching the given search string.
+     * Play samples of all tracks by a given artist.
      */
-    public void playSample();
-    {
-        boolean search = true;
-        for(String filename : files) {
-            
+    public void playSamplesByArstis(String artist) {
+        boolean found = false;
+        for (String filename : files) {
+            if (filename.contains(artist)) {
+                player.playSample(filename);
+                found= true;
+            }
         }
-        
+        if (!found) {
+            System.out.println("No tracks found for artist: " + artist);
+        }
     }
-    
     /**
      * Play a file in the collection. Only return once playing has finished.
      * @param index The index of the file to be played.
