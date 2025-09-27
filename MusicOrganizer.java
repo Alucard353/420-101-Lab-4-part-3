@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * A class to hold details of audio files.
@@ -12,7 +13,8 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+    private ArrayList<Track> trackList;
+    
     /**
      * Create a MusicOrganizer
      */
@@ -20,7 +22,9 @@ public class MusicOrganizer
     {
         files = new ArrayList<>();
         player = new MusicPlayer();
+        trackList = new ArrayList<>();
     }
+    
     
     /**
      * Add a file to the collection.
@@ -133,7 +137,7 @@ public class MusicOrganizer
      */
     public void playSamplesByArstis(String artist) {
         boolean found = false;
-        for (String filename : files) {
+        for (String filename : files){
             if (filename.contains(artist)) {
                 player.playSample(filename);
                 found= true;
@@ -143,6 +147,18 @@ public class MusicOrganizer
             System.out.println("No tracks found for artist: " + artist);
         }
     }
+    
+
+    
+    /**
+     * print the titles of all tracks in the track list.
+     */
+    public void listAllTracks() {
+        for (Track track : trackList) {
+            System.out.println(track.getTitle());
+        }
+    }
+    
     /**
      * Play a file in the collection. Only return once playing has finished.
      * @param index The index of the file to be played.
